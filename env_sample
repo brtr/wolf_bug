@@ -1,0 +1,4 @@
+PRIVATE_KEY = "wallet private key"
+API_URL = "rpc url"
+WOOLF_ADDRESS = "woolf contract address"
+CONTRACT_ADDRESS = "wolf bug contract"
