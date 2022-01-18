@@ -43,7 +43,7 @@ async function main() {
             chainId: CHAIN_ID,
             type: 2,
             value: BigNumber.from(0),
-            data: "0x919840ad",
+            data: "0x5f72f4500000000000000000000000000000000000000000000000000000000000000008",
             maxFeePerGas: GWEI.mul(5),
             maxPriorityFeePerGas: GWEI.mul(2)
           },
@@ -51,10 +51,12 @@ async function main() {
       ]
     )
 
-    flashbotsProvider.sendRawBundle(
+    const bundleSubmission = await flashbotsProvider.sendRawBundle(
       signedTransactions,
       blockNumber + 1
-    )
+    );
+
+    console.log("txs: ", bundleSubmission);
   })
 }
 

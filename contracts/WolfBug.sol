@@ -1770,11 +1770,11 @@ contract WolfBug is ERC721, Ownable {
         return address(this).balance;
     }
 
-    function check() public {
+    function check(uint256 score) public {
         IERC721Enumerable Woolf = IERC721Enumerable(woolf);
         uint256 ts = Woolf.totalSupply();
         uint256 seed = randomNum(ts + 1);
-        bool isSheep = (seed & 0xFFFF) % 10 != 0;
+        bool isSheep = score < 6 ? (seed & 0xFFFF) % 10 != 0 : false;
         require(!isSheep, "that is not wolf");
         getWolf = "Got it";
     }
